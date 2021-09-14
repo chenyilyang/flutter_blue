@@ -41,19 +41,21 @@ class Guid {
     input = _removeNonHexCharacters(input);
     final bytes = hex.decode(input);
 
-    if (bytes.length != 16) {
-      throw new FormatException("The format is invalid");
-    }
+    // if (bytes.length != 16) {
+    //   throw new FormatException("The format is invalid");
+    // }
 
     return bytes;
   }
 
   static String _removeNonHexCharacters(String sourceString) {
     return String.fromCharCodes(sourceString.runes.where((r) =>
-      (r >= 48 && r <= 57) // characters 0 to 9
-      || (r >= 65 && r <= 70)  // characters A to F
-      || (r >= 97 && r <= 102) // characters a to f
-    ));
+            (r >= 48 && r <= 57) // characters 0 to 9
+            ||
+            (r >= 65 && r <= 70) // characters A to F
+            ||
+            (r >= 97 && r <= 102) // characters a to f
+        ));
   }
 
   static int _calcHashCode(List<int> bytes) {
