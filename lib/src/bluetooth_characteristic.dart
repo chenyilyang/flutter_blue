@@ -21,6 +21,8 @@ class BluetoothCharacteristic {
     }
   }
 
+  // set mainServiceUUID(Guid serviceUUID) => serviceUuid = serviceUUID;
+
   BehaviorSubject<List<int>> _value;
   Stream<List<int>> get value => Rx.merge([
         _value.stream,
